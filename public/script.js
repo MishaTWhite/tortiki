@@ -1,4 +1,4 @@
-const API_URL = 'https://tortiki-11e532ff1e8a.herokuapp.com/';  // Для локального тестування
+const API_URL = 'https://tortiki-11e532ff1e8a.herokuapp.com';  // Заміни на URL свого Heroku сервера
 
 let mishaScore = 0;
 let pashaScore = 0;
@@ -31,7 +31,7 @@ function saveBet() {
         active: true
     };
 
-    fetch(`${API_URL}/addBet`, {
+    fetch(`${API_URL}/addBet`, {  // Виправлено URL
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ function saveBet() {
 }
 
 function loadBets() {
-    fetch(`${API_URL}/getBets`)
+    fetch(`${API_URL}/getBets`)  // Виправлено URL
         .then(response => response.json())
         .then(bets => {
             console.log('Loaded bets:', bets);
@@ -70,7 +70,7 @@ function loadBets() {
 
 function toggleBet(index) {
     console.log(`Toggling bet at index: ${index}`);
-    fetch(`${API_URL}/toggleBet`, {
+    fetch(`${API_URL}/toggleBet`, {  // Виправлено URL
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -92,7 +92,7 @@ function updateServer() {
 
     console.log('Updating server with scores:', data);
 
-    fetch(`${API_URL}/updateScore`, {
+    fetch(`${API_URL}/updateScore`, {  // Виправлено URL
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -106,7 +106,7 @@ function updateServer() {
 }
 
 window.onload = () => {
-    fetch(`${API_URL}/getScore`)
+    fetch(`${API_URL}/getScore`)  // Виправлено URL
         .then(response => response.json())
         .then(data => {
             console.log('Loaded scores:', data);
