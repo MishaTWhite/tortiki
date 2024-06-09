@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000';  // Для локального тестування
+const API_URL = 'https://tortiki-11e532ff1e8a.herokuapp.com/';  // Для локального тестування
 
 let mishaScore = 0;
 let pashaScore = 0;
