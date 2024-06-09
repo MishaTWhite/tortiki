@@ -1,14 +1,17 @@
 body {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 100vh;
     background-color: #f0f0f0;
     margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .container {
     text-align: center;
+    width: 100%;
 }
 
 .scoreboard {
@@ -34,11 +37,28 @@ button {
     margin-bottom: 20px;
 }
 
+.betting-area input, .betting-area select {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
 .bets-list {
     max-width: 600px;
     margin: 0 auto;
 }
 
-.inactive {
+.bets-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.bets-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.bets-list li.inactive {
     color: gray;
 }

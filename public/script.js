@@ -14,13 +14,17 @@ function changeScore(team, delta) {
     updateServer();
 }
 
-function addBet(team) {
+function saveBet() {
     const betDescription = document.getElementById('betDescription').value;
-    if (betDescription.trim() === '') return;
+    const betFor = document.getElementById('betFor').value;
+    const betAgainst = document.getElementById('betAgainst').value;
+
+    if (betDescription.trim() === '' || betFor === betAgainst) return;
 
     const bet = {
         description: betDescription,
-        team: team,
+        for: betFor,
+        against: betAgainst,
         active: true
     };
 
@@ -43,7 +47,7 @@ function loadBets() {
             betsList.innerHTML = '';
             bets.forEach((bet, index) => {
                 const betItem = document.createElement('li');
-                betItem.textContent = bet.description + ' (' + bet.team + ')';
+                betItem.textContent = `${bet.description} (Так: ${bet.for}, Ні: ${bet.against})`;
                 if (!bet.active) {
                     betItem.classList.add('inactive');
                 }

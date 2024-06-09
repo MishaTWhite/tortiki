@@ -25,8 +25,15 @@
         </div>
         <div class="betting-area">
             <input type="text" id="betDescription" placeholder="Опис ставки">
-            <button onclick="addBet('misha')">Так Міша</button>
-            <button onclick="addBet('pasha')">Так Паша</button>
+            <select id="betFor">
+                <option value="misha">Так Міша</option>
+                <option value="pasha">Так Паша</option>
+            </select>
+            <select id="betAgainst">
+                <option value="misha">Ні Міша</option>
+                <option value="pasha">Ні Паша</option>
+            </select>
+            <button onclick="saveBet()">Зберегти ставку</button>
         </div>
         <div class="bets-list">
             <ul id="bets"></ul>
