@@ -1,3 +1,5 @@
+const API_URL = 'https://your-heroku-app.herokuapp.com';  // Заміни на URL свого Heroku сервера
+
 let mishaScore = 0;
 let pashaScore = 0;
 
@@ -22,7 +24,7 @@ function addBet(team) {
         active: true
     };
 
-    fetch('/addBet', {
+    fetch(`${API_URL}/addBet`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -34,7 +36,7 @@ function addBet(team) {
 }
 
 function loadBets() {
-    fetch('/getBets')
+    fetch(`${API_URL}/getBets`)
         .then(response => response.json())
         .then(bets => {
             const betsList = document.getElementById('bets');
@@ -52,7 +54,7 @@ function loadBets() {
 }
 
 function toggleBet(index) {
-    fetch('/toggleBet', {
+    fetch(`${API_URL}/toggleBet`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -67,7 +69,7 @@ function updateServer() {
         pashaScore
     };
 
-    fetch('/updateScore', {
+    fetch(`${API_URL}/updateScore`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -77,7 +79,7 @@ function updateServer() {
 }
 
 window.onload = () => {
-    fetch('/getScore')
+    fetch(`${API_URL}/getScore`)
         .then(response => response.json())
         .then(data => {
             mishaScore = data.mishaScore;
